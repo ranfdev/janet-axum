@@ -1,0 +1,24 @@
+[package]
+name = "template"
+version = "0.1.0"
+authors = ["Author <email@provider.com>"]
+edition = "2018"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+bench = false
+
+[dependencies]
+janetrs = "0.4.0"
+
+[features]
+default = []
+## Feature to link to system Janet
+# If the version of the system Janet if different from the version the JanetRS header comes from, you can use the `system feature flag`
+system-janet = ["janetrs/system"]
